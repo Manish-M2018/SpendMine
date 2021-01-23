@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -49,6 +50,8 @@ public class Signup extends AppCompatActivity {
         submit = findViewById(R.id.btn_submit);
         login = findViewById(R.id.login);
 
+        mAuth = FirebaseAuth.getInstance();
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +74,7 @@ public class Signup extends AppCompatActivity {
         email = et_email.getText().toString();
         pass = et_pass.getText().toString();
 
+        Log.d("Emaillllll",email);
         mAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -104,18 +108,19 @@ public class Signup extends AppCompatActivity {
         // Access a Cloud Firestore instance from Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("users").document("user")
-                .set(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("users")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Success", "DocumentSnapshot successfully written!");
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("Success", "DocumentSnapshot written with ID: " + documentReference.getId());
+                        Toast.makeText(getApplicationContext(),"Success! Login to continue",Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("Error adding doc", "Error writing document", e);
+                        Log.w("Failed", "Error adding document", e);
                     }
                 });
     }
