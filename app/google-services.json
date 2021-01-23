@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "809699773789",
+    "project_id": "spendmine",
+    "storage_bucket": "spendmine.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809699773789:android:1fb0052b4d123078b26cb4",
+        "android_client_info": {
+          "package_name": "com.example.spendmine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809699773789-erkjv45t29mounk4ujd23t2dni8mce5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9GmqCrWWz-nlSearuUF10JF5r-Y7JOgM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809699773789-erkjv45t29mounk4ujd23t2dni8mce5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
