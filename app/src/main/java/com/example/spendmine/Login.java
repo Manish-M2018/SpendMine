@@ -49,8 +49,6 @@ public class Login extends AppCompatActivity {
         et_pass = findViewById(R.id.pass);
         signup = findViewById(R.id.signup);
 
-        email = et_email.toString();
-        pass = et_pass.toString();
 
 
         submit = findViewById(R.id.btn_submit);
@@ -59,6 +57,9 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Go to signup activity
+                Intent i = new Intent(Login.this,Signup.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
             }
         });
 
@@ -75,6 +76,9 @@ public class Login extends AppCompatActivity {
     }
 
     void login() {
+        email = et_email.getText().toString();
+        pass = et_pass.getText().toString();
+
         mAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
