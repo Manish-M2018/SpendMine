@@ -7,6 +7,7 @@
     tools:context=".Business_Dashboard">
 
     <TextView
+        android:id="@+id/tv_business_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Business Dashboard"
@@ -18,5 +19,16 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <include
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_business_dashboard" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

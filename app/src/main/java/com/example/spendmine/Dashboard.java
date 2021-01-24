@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.spendmine.fragments.Business_Profile;
+import com.example.spendmine.fragments.Student_Profile;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {
@@ -39,7 +41,14 @@ public class Dashboard extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
 
         //noinspection SimplifiableIfStatement
+
+        Fragment fragment = null;
         switch (item.getItemId()) {
+
+            case R.id.profile:
+                fragment = new Student_Profile();
+                break;
+
             case R.id.logout:
                 final Dialog myDialog;
                 myDialog = new Dialog(this);
@@ -64,6 +73,18 @@ public class Dashboard extends AppCompatActivity {
                 });
 
         }
-        return true;
+        return loadFragment(fragment);
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }

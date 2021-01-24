@@ -1,6 +1,7 @@
 package com.example.spendmine;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.spendmine.fragments.Business_Profile;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Business_Dashboard extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class Business_Dashboard extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.business_menu, menu);
         return true;
     }
 
@@ -37,8 +39,14 @@ public class Business_Dashboard extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
+        Fragment fragment = null;
+
         //noinspection SimplifiableIfStatement
         switch (item.getItemId()) {
+            case R.id.profile:
+                fragment = new Business_Profile();
+                break;
+
             case R.id.logout:
                 final Dialog myDialog;
                 myDialog = new Dialog(this);
@@ -63,6 +71,18 @@ public class Business_Dashboard extends AppCompatActivity {
                 });
 
         }
-        return true;
+        return loadFragment(fragment);
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }
