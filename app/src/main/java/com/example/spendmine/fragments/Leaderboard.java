@@ -67,7 +67,7 @@ public class Leaderboard extends Fragment {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         db.collection("users")
-                .orderBy("fluff", Query.Direction.ASCENDING)
+                .orderBy("fluff", Query.Direction.DESCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
