@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom"/>
 
     <item
+        android:id="@+id/coins"
+        android:title="Fluffy coins"
+        android:icon="@drawable/coins"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/logout"
         android:title="Logout"/>
 </menu>
