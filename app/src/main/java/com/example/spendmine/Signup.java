@@ -119,13 +119,14 @@ public class Signup extends AppCompatActivity {
         // Access a Cloud Firestore instance from Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        db.collection("users").document(currentUser.getUid())
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("Success", "DocumentSnapshot written with ID: " + documentReference.getId());
-                        Toast.makeText(getApplicationContext(),"Logging in",Toast.LENGTH_LONG).show();
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
                         //Go to login activity
                         Intent i = new Intent(Signup.this,Login.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -135,8 +136,28 @@ public class Signup extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("Failed", "Error adding document", e);
+                        Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
                     }
                 });
+
+//        db.collection("users")
+//                .add(user)
+//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                    @Override
+//                    public void onSuccess(DocumentReference documentReference) {
+//                        Log.d("Success", "DocumentSnapshot written with ID: " + documentReference.getId());
+//                        Toast.makeText(getApplicationContext(),"Logging in",Toast.LENGTH_LONG).show();
+//                        //Go to login activity
+//                        Intent i = new Intent(Signup.this,Login.class);
+//                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                        startActivity(i);
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.w("Failed", "Error adding document", e);
+//                    }
+//                });
     }
 }

@@ -168,6 +168,7 @@ public class Login extends AppCompatActivity {
                                         Intent mainIntent = new Intent(Login.this, Dashboard.class);
                                         Login.this.startActivity(mainIntent);
                                     }
+                                    Toast.makeText(getApplicationContext(),"Check the details",Toast.LENGTH_LONG).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(),"Invalid",Toast.LENGTH_LONG).show();
                                     Log.d("Tag!!!!!", "Error getting documents: ", task.getException());
@@ -188,6 +189,7 @@ public class Login extends AppCompatActivity {
                                         Intent mainIntent = new Intent(Login.this, Business_Dashboard.class);
                                         Login.this.startActivity(mainIntent);
                                     }
+                                    Toast.makeText(getApplicationContext(),"Check the details!",Toast.LENGTH_LONG).show();
                                 } else {
                                     Toast.makeText(getApplicationContext(),"Invalid",Toast.LENGTH_LONG).show();
                                     Log.d("Tag!!!!!", "Error getting documents: ", task.getException());
