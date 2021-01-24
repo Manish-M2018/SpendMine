@@ -15,6 +15,7 @@ import android.widget.Button;
 
 import com.example.spendmine.fragments.Business_Profile;
 import com.example.spendmine.fragments.Fluffy_coins;
+import com.example.spendmine.fragments.QR_scan;
 import com.example.spendmine.fragments.Student_Profile;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -48,6 +49,10 @@ public class Dashboard extends AppCompatActivity {
 
             case R.id.profile:
                 fragment = new Student_Profile();
+                break;
+
+            case R.id.scan:
+                fragment = new QR_scan();
                 break;
 
             case R.id.coins:

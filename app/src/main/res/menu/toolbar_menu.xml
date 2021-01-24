@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom"/>
 
     <item
+        android:id="@+id/scan"
+        android:title="QR Scan"
+        android:icon="@drawable/code"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/coins"
         android:title="Fluffy coins"
         android:icon="@drawable/coins"
