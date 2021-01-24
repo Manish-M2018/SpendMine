@@ -29,7 +29,7 @@ public class Signup extends AppCompatActivity {
 
     EditText et_email, et_pass, et_expenditure, et_city, et_university, et_frequency;
     Button submit;
-    TextView login;
+    TextView login, business_signup;
 
     String email,pass;
 
@@ -46,11 +46,22 @@ public class Signup extends AppCompatActivity {
         et_city = findViewById(R.id.city);
         et_university = findViewById(R.id.university);
         et_frequency = findViewById(R.id.frequency);
+        business_signup = findViewById(R.id.business_signup);
 
         submit = findViewById(R.id.btn_submit);
         login = findViewById(R.id.login);
 
         mAuth = FirebaseAuth.getInstance();
+
+        business_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Go to business signup activity
+                Intent i = new Intent(Signup.this,Business_signup.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +85,6 @@ public class Signup extends AppCompatActivity {
         email = et_email.getText().toString();
         pass = et_pass.getText().toString();
 
-        Log.d("Emaillllll",email);
         mAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -104,6 +114,7 @@ public class Signup extends AppCompatActivity {
         user.put("city", et_city.getText().toString());
         user.put("university", et_university.getText().toString());
         user.put("frequency", et_frequency.getText().toString());
+        user.put("category","student");
 
         // Access a Cloud Firestore instance from Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -114,7 +125,11 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d("Success", "DocumentSnapshot written with ID: " + documentReference.getId());
-                        Toast.makeText(getApplicationContext(),"Success! Login to continue",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Logging in",Toast.LENGTH_LONG).show();
+                        //Go to login activity
+                        Intent i = new Intent(Signup.this,Login.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
