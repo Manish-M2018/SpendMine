@@ -37,9 +37,11 @@ import java.util.Map;
 public class QR_scan extends Fragment {
 
     Button scan;
-
-    String qrcode,company;
+    TextView acknowledgement;
+    String qrcode,company, fluff;
     private FirebaseAuth mAuth;
+
+    int amount, avg;
 
 
     public QR_scan() {
@@ -66,6 +68,7 @@ public class QR_scan extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         scan = getActivity().findViewById(R.id.btn_scan);
+        acknowledgement = getActivity().findViewById(R.id.acknowledgement);
 
 
         scan.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +98,10 @@ public class QR_scan extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Toast.makeText(getContext(),"Successfully scanned for "+ document.getData().get("company").toString(),Toast.LENGTH_LONG).show();
+                                amount = Integer.parseInt(document.getData().get("amount_spent").toString());
+                                String display = "Successfully paid $"+ amount +" to "+ document.getData().get("company").toString();
+                                Toast.makeText(getContext(),display,Toast.LENGTH_LONG).show();
+                                acknowledgement.setText(display);
                                 company = document.getData().get("company").toString();
                                 recordScan();
                             }
@@ -115,6 +121,7 @@ public class QR_scan extends Fragment {
         QR.put("email", user.getEmail());
         QR.put("qr_data", qrcode);
         QR.put("company", company);
+        QR.put("amount_spent", amount);
 
         // Access a Cloud Firestore instance from Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -135,6 +142,82 @@ public class QR_scan extends Fragment {
                         Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+
+        getFluffyCoinsCount();
+
     }
 
+    public void getFluffyCoinsCount() {
+        // Access a Cloud Firestore instance from Activity
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        db.collection("users")
+                .whereEqualTo("email", user.getEmail())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                fluff = document.getData().get("fluff").toString();
+                                getAverage();
+                            }
+                        } else {
+                            Log.d("Tag!!!!!", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+    }
+
+    public void getAverage() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //Also get the avg amount from the company
+        db.collection("business")
+                .whereEqualTo("company", company)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                avg = Integer.parseInt(document.getData().get("average").toString());
+                                updateFluff();
+                            }
+                        } else {
+                            Log.d("Tag!!!!!", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+    }
+
+    public void updateFluff() {
+        Log.d("Fluffy function","goood");
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        int f = Integer.parseInt(fluff);
+        //Formula to get the updated fluffy coins
+        if(amount<avg) {
+            Log.d("Yayy Fluffy",amount+" "+avg);
+            //Get fluffy coins!
+            //Max of 10 fluffy coins per purchase and the additions are only 2,5 or 10
+            if(amount < (avg/2)) {
+                f += 10;
+            }else if(amount < (0.75 * avg)) {
+                f += 5;
+            } else {
+                f += 2;
+            }
+        }
+        else {
+            //No fluffy coins :(
+            Toast.makeText(getContext(),"You didn't get any fluffy coins :(",Toast.LENGTH_SHORT).show();
+        }
+
+        //Update the fluffy coins
+        db.collection("users").document(user.getUid()).update("fluff",String.valueOf(f));
+    }
 }

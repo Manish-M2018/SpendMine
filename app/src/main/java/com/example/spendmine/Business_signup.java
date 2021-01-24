@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class Business_signup extends AppCompatActivity {
 
-    EditText et_company, et_email, et_pass, et_contact, et_city;
+    EditText et_company, et_email, et_pass, et_contact, et_city, et_avg;
     TextView login, signup;
     Button submit;
     String email,pass;
@@ -44,6 +44,7 @@ public class Business_signup extends AppCompatActivity {
         et_pass = findViewById(R.id.pass);
         et_contact = findViewById(R.id.contact);
         et_city = findViewById(R.id.city);
+        et_avg = findViewById(R.id.average);
         login = findViewById(R.id.login);
         signup = findViewById(R.id.signup);
         submit = findViewById(R.id.btn_submit);
@@ -113,7 +114,9 @@ public class Business_signup extends AppCompatActivity {
         company.put("company", et_company.getText().toString());
         company.put("city", et_city.getText().toString());
         company.put("contact", et_contact.getText().toString());
+        company.put("average",et_avg.getText().toString());
         company.put("category","business");
+
 
         // Access a Cloud Firestore instance from Activity
         FirebaseFirestore db = FirebaseFirestore.getInstance();

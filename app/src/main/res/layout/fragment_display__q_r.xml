@@ -10,11 +10,25 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter the amount"
+            android:textSize="20sp"
+            android:textColor="#000"
+            android:padding="10dp"
+            android:inputType="number"
+            android:background="@drawable/rectangle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_gravity="center"/>
+
         <Button
             android:id="@+id/btn_generate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generate QR Code"
+            android:layout_marginTop="30dp"
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="#000"

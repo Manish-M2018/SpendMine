@@ -114,6 +114,7 @@ public class Signup extends AppCompatActivity {
         user.put("city", et_city.getText().toString());
         user.put("university", et_university.getText().toString());
         user.put("frequency", et_frequency.getText().toString());
+        user.put("fluff",0);
         user.put("category","student");
 
         // Access a Cloud Firestore instance from Activity

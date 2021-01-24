@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -41,9 +42,11 @@ public class Display_QR extends Fragment {
 
     Button generate;
     ImageView QR_code;
+    EditText et_amount;
     private FirebaseAuth mAuth;
     String email, city, company, contact;
     String data_qr;
+
 
 
     public Display_QR() {
@@ -68,6 +71,7 @@ public class Display_QR extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         generate = getActivity().findViewById(R.id.btn_generate);
+        et_amount = getActivity().findViewById(R.id.amount);
         QR_code = getActivity().findViewById(R.id.qr_code);
 
         generate.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +129,7 @@ public class Display_QR extends Fragment {
         QR.put("city", city);
         QR.put("contact", contact);
         QR.put("qr_data", data_qr);
+        QR.put("amount_spent", et_amount.getText().toString());
         QR.put("category", "business");
 
         // Access a Cloud Firestore instance from Activity

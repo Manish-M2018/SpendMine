@@ -28,6 +28,17 @@
         android:layout_gravity="center"
         android:background="#000"/>
 
+    <TextView
+        android:id="@+id/acknowledgement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#000"
+        android:layout_marginTop="25dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:textSize="25sp"/>
+
 
 
 </LinearLayout>
