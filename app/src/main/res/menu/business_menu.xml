@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom"/>
 
     <item
+        android:id="@+id/qr"
+        android:title="QR Code"
+        android:icon="@drawable/code"
+        app:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/logout"
         android:title="Logout"/>
 </menu>

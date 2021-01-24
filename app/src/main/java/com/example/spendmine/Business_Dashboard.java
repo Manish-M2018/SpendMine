@@ -14,7 +14,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.spendmine.fragments.Business_Profile;
+import com.example.spendmine.fragments.Display_QR;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.zxing.qrcode.encoder.QRCode;
 
 public class Business_Dashboard extends AppCompatActivity {
 
@@ -45,6 +47,10 @@ public class Business_Dashboard extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.profile:
                 fragment = new Business_Profile();
+                break;
+
+            case R.id.qr:
+                fragment = new Display_QR();
                 break;
 
             case R.id.logout:
