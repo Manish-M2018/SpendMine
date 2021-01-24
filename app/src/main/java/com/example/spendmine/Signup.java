@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class Signup extends AppCompatActivity {
 
-    EditText et_email, et_pass, et_expenditure, et_city, et_university, et_frequency;
+    EditText et_email, et_pass, et_expenditure, et_city, et_university, et_frequency, et_name;
     Button submit;
     TextView login, business_signup;
 
@@ -41,6 +41,7 @@ public class Signup extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         et_email = findViewById(R.id.email);
+        et_name = findViewById(R.id.name);
         et_pass = findViewById(R.id.pass);
         et_expenditure = findViewById(R.id.expenditure);
         et_city = findViewById(R.id.city);
@@ -109,6 +110,7 @@ public class Signup extends AppCompatActivity {
     public void addData() {
         Map<String, Object> user = new HashMap<>();
         user.put("email", email);
+        user.put("name", et_name.getText().toString());
         user.put("password", pass);
         user.put("expenditure", et_expenditure.getText().toString());
         user.put("city", et_city.getText().toString());

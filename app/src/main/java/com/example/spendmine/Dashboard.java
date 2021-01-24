@@ -15,6 +15,7 @@ import android.widget.Button;
 
 import com.example.spendmine.fragments.Business_Profile;
 import com.example.spendmine.fragments.Fluffy_coins;
+import com.example.spendmine.fragments.Leaderboard;
 import com.example.spendmine.fragments.QR_scan;
 import com.example.spendmine.fragments.Student_Profile;
 import com.google.firebase.auth.FirebaseAuth;
@@ -58,6 +59,11 @@ public class Dashboard extends AppCompatActivity {
             case R.id.coins:
                 fragment = new Fluffy_coins();
                 break;
+
+            case R.id.leaderboard:
+                fragment = new Leaderboard();
+                break;
+
             case R.id.logout:
                 final Dialog myDialog;
                 myDialog = new Dialog(this);

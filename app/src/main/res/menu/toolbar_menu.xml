@@ -21,6 +21,13 @@
         app:showAsAction="ifRoom"/>
 
     <item
+        android:id="@+id/leaderboard"
+        android:title="Leaderboard"
+        android:icon="@drawable/list"
+        app:showAsAction="ifRoom"/>
+
+
+    <item
         android:id="@+id/logout"
         android:title="Logout"/>
 </menu>
