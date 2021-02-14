@@ -20,7 +20,7 @@ Hex Cambridge is Cambridge's biggest 36 hour hackathon where some of the best ha
 # Wireframes:
 ![Splash Screen](Screenshots/p1.jpg) &nbsp;&nbsp;&nbsp;&nbsp; ![Login](Screenshots/p2.jpg) &nbsp;&nbsp;&nbsp;&nbsp; ![Scan QR Code](Screenshots/p3.jpg)<br><br>
 ![Fluffy coins](Screenshots/p5.jpg) &nbsp;&nbsp;&nbsp;&nbsp; ![Leaderboard](Screenshots/p6.jpg) <br><br>
-<center>![QR Code Scanner](Screenshots/p4.jpg) </center>
+![QR Code Scanner](Screenshots/p4.jpg)
 
          
 
