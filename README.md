@@ -5,6 +5,11 @@
 Hex Cambridge is Cambridge's biggest 36 hour hackathon where some of the best hackers from all over the world are selected to participate
 <br><br>
 
+# Inspiration:
+The inspiration for this application comes from the need to help students to save money by motivating them to do so in a gamified manner
+
+<br><br>
+
 # Features of the application:
 - The android application takes in the details of the student and his expenditure and checks whether he is spending wisely. <br>
 - If he does, he is given 'fluffy' coins. <br>
