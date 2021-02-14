@@ -12,17 +12,10 @@ Spend Mine would display graphs of the expenditures of the students and tie up w
 We would also provide personalised recommendations to the users as to which entertainment location is suitable for them according to their budget/expenditure.
 
 <br><br>
-<b>Wireframes</b>
-![Splash Screen](Screenshots/p1.jpg)
+<b>Wireframes</b><br><br>
+![Splash Screen](Screenshots/p1.jpg)  ![Login](Screenshots/p2.jpg)
 
-![Login](Screenshots/p2.jpg)
-
-
-![Scan QR Code](Screenshots/p3.jpg)
-
-
-![QR Code Scanner](Screenshots/p4.jpg)
-
+![Scan QR Code](Screenshots/p3.jpg) ![QR Code Scanner](Screenshots/p4.jpg)
 
 ![Fluffy coins](Screenshots/p5.jpg)
 
