@@ -7,16 +7,16 @@ They can redeem the fluffy coins in entertainment places who are tied up with us
 If they spend lesser than the estimated amount for entertainment, they get more fluffy coins.<br>
 
 <br><br>
-<b>Probable future of SpendMine:</b><br>
+# Probable future of SpendMine:
 Spend Mine would display graphs of the expenditures of the students and tie up with online payment applications like Paypal in order to directly track the amount spent by a student. <br>
 We would also provide personalised recommendations to the users as to which entertainment location is suitable for them according to their budget/expenditure.
 
 <br><br>
-<b>Wireframes</b><br><br>
-![Splash Screen](Screenshots/p1.jpg)  ![Login](Screenshots/p2.jpg)
+# Wireframes
+![Splash Screen](Screenshots/p1.jpg) ![Login](Screenshots/p2.jpg)
 
 ![Scan QR Code](Screenshots/p3.jpg) ![QR Code Scanner](Screenshots/p4.jpg)
 
-![Fluffy coins](Screenshots/p5.jpg)
+![Fluffy coins](Screenshots/p5.jpg) ![Leaderboard](Screenshots/p6.jpg) 
 
 
