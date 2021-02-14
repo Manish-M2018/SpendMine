@@ -15,13 +15,13 @@ The inspiration for this application comes from the need to help students to sav
 - There is a leaderboard to see how they compare with other students. <br>
 - They can redeem the fluffy coins in entertainment places who are tied up with us like a cinema halls, opera etc. <br>
 - If they spend lesser than the estimated amount for entertainment, they get more fluffy coins.<br>
-
 <br><br>
+
 # Probable future of SpendMine:
 - Spend Mine would display graphs of the expenditures of the students and tie up with online payment applications like Paypal in order to directly track the amount spent by a student. <br>
 - We would also provide personalised recommendations to the users as to which entertainment location is suitable for them according to their budget/expenditure.
-
 <br><br>
+
 # Wireframes:
 ![Splash Screen](Screenshots/p1.jpg) ![Login](Screenshots/p2.jpg) ![Scan QR Code](Screenshots/p3.jpg) ![Fluffy coins](Screenshots/p5.jpg) ![Leaderboard](Screenshots/p6.jpg)
 <br><br>
