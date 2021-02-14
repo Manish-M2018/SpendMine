@@ -3,6 +3,7 @@
 
 # About Hex Cambridge hackathon:
 Hex Cambridge is Cambridge's biggest 36 hour hackathon where some of the best hackers from all over the world are selected to participate
+<br><br>
 
 # Features of the application:
 - The android application takes in the details of the student and his expenditure and checks whether he is spending wisely. <br>
