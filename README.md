@@ -1,5 +1,10 @@
 # SpendMine
 <b>Android application built during the "Hex Cambridge" hackathon.</b><br><br>
+
+# About Hex Cambridge hackathon:
+Hex Cambridge is Cambridge's biggest 36 hour hackathon where some of the best hackers from all over the world are selected to participate
+
+# Features of the application:
 - The android application takes in the details of the student and his expenditure and checks whether he is spending wisely. <br>
 - If he does, he is given 'fluffy' coins. <br>
 - There is a leaderboard to see how they compare with other students. <br>
@@ -12,7 +17,7 @@
 - We would also provide personalised recommendations to the users as to which entertainment location is suitable for them according to their budget/expenditure.
 
 <br><br>
-# Wireframes
+# Wireframes:
 ![Splash Screen](Screenshots/p1.jpg)         ![Login](Screenshots/p2.jpg)
 
 ![Scan QR Code](Screenshots/p3.jpg)          ![QR Code Scanner](Screenshots/p4.jpg)
